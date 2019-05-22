@@ -5,12 +5,18 @@ var MessagesView = {
   initialize: function() {
   },
 
-  render: function(messages) {
+  takeInAllMessages: function(messages) {
+
     messages.forEach((message) => {
       if (message.username !== undefined || message.text !== undefined) {
-        $(MessageView.render(message)).appendTo(MessagesView.$chats);
+        MessagesView.renderMessage(message);
       }
     });
+  },
+
+  renderMessage: function(message) {
+    //console.log('RENDER MESSAGE', message);
+    $(MessageView.render(message)).appendTo(MessagesView.$chats);
   }
 
 };
