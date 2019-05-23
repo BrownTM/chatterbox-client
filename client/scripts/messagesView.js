@@ -6,16 +6,18 @@ var MessagesView = {
   },
 
   takeInAllMessages: function(messages) {
-
+    RoomsView.filterRooms(messages);
     messages.forEach((message) => {
-      if (message.username !== undefined || message.text !== undefined) {
-        MessagesView.renderMessage(message);
+      if (message.username !== undefined && message.text !== undefined) {
+        if (message.roomname === undefined) {
+          message.roomname = 'lobby';
+        }
+        RoomsView.filterMessagesforEachRoom(message);
       }
     });
   },
 
   renderMessage: function(message) {
-    //console.log('RENDER MESSAGE', message);
     $(MessageView.render(message)).appendTo(MessagesView.$chats);
   }
 

@@ -23,7 +23,7 @@ var FormView = {
     Parse.create(message);
     $('#chats').empty();
     App.fetch();
-    // console.log('click!', this[0].value);
+
   },
 
   setStatus: function(active) {

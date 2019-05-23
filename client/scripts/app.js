@@ -23,10 +23,8 @@ var App = {
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
-      // examine the response from the server request:
       console.log(data.results);
       MessagesView.takeInAllMessages(data.results);
-      RoomsView.filterRooms(data.results);
       callback();
     });
   },
@@ -41,3 +39,10 @@ var App = {
     FormView.setStatus(false);
   }
 };
+
+// heircharcy ->
+// in app.fetch, we call filterMessages for each room and pass in data.results array
+// in roomsView.js, we will take in some messages for a specific room
+
+//when we run app.fetch,
+
