@@ -2,6 +2,10 @@ var FormView = {
 
   $form: $('form'),
 
+  //placeholder variable to store what room we're currently in
+  //$select changes current room
+  currentRoom: 'lobby',
+
   initialize: function() {
     FormView.$form.on('submit', FormView.handleSubmit);
   },
@@ -13,7 +17,7 @@ var FormView = {
     var message = {
       text: this[0].value,
       username: App.username,
-      roomname: 'lobby'
+      roomname: FormView.currentRoom
     };
 
     Parse.create(message);
