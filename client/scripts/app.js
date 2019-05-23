@@ -14,6 +14,10 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    setInterval(function() {
+      $('#chats').empty();
+      App.fetch();
+    }, 10000);
 
   },
 
